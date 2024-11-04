@@ -1,1 +1,1 @@
-did not finish, needed to sleep. stopped at section 3, step 3
+finished

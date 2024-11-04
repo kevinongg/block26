@@ -11,12 +11,23 @@ const dummyContacts = [
 
 export default function ContactList() { 
   const [contacts, setContacts] = useState(dummyContacts);
-  console.log("Contacts: ", contacts);
+  // console.log("Contacts: ", contacts);
 
   useEffect(() => {
-      // stopped doing at 3rd section, step 3
+    async function fetchContacts() {
+      try {
+        const response = await fetch(`https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users`);
+        const data = await response.json();
+        console.log(data);
+        setContacts(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchContacts()
   }, [])
 
+  console.log(contacts);
   return ( 
         <table>
           <thead>
